@@ -14,8 +14,8 @@ export const chatWithMinimax = async (
   // By default we will use api.minimax.io which is the Global endpoint.
   // We can switch this to api.minimaxi.com if it's a Chinese key.
   const baseUrl = `https://api.minimax.io/v1/text/chatcompletion_v2`;
-  // Do not append GroupId for the global endpoints.
-  const url = baseUrl;
+  // Some endpoints strictly require GroupId in the URL parameters
+  const url = groupId ? `${baseUrl}?GroupId=${groupId}` : baseUrl;
   
   // Format messages to strictly match OpenAI/Minimax format
   const formattedMessages = messages.map(msg => ({
