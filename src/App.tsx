@@ -17,7 +17,7 @@ function App() {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [apiKey, setApiKey] = useState(import.meta.env.VITE_MINIMAX_API_KEY || '');
+  const [apiKey, setApiKey] = useState(import.meta.env.VITE_OPENROUTER_API_KEY || '');
   const [groupId, setGroupId] = useState(import.meta.env.VITE_MINIMAX_GROUP_ID || '');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -62,17 +62,10 @@ function App() {
     <div className="app-container">
       <header className="header">
         <h1>🏛️ AI History Explorer</h1>
-        <div className="api-key-input" style={{ display: 'flex', gap: '10px' }}>
-          <input 
-            type="text" 
-            placeholder="Group ID (Optional)" 
-            value={groupId}
-            onChange={(e) => setGroupId(e.target.value)}
-            style={{ width: '150px' }}
-          />
-          <input 
-            type="text" 
-            placeholder="Minimax API Key" 
+        <div className="api-key-input">
+          <input
+            type="password"
+            placeholder="OpenRouter API Key"
             value={apiKey}
             onChange={(e) => setApiKey(e.target.value)}
           />
