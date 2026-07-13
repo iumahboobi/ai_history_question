@@ -18,7 +18,6 @@ function App() {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [apiKey, setApiKey] = useState(import.meta.env.VITE_OPENROUTER_API_KEY || '');
-  const [groupId, setGroupId] = useState(import.meta.env.VITE_MINIMAX_GROUP_ID || '');
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -48,7 +47,7 @@ function App() {
     try {
       // Exclude the first message if you only want to show user/assistant in UI, 
       // but we need to pass all messages to the API.
-      const reply = await chatWithMinimax(newMessages, apiKey, groupId);
+      const reply = await chatWithMinimax(newMessages, apiKey);
       setMessages([...newMessages, { role: 'assistant', name: 'assistant', content: reply }]);
     } catch (error: any) {
       console.error(error);

@@ -6,8 +6,7 @@ export interface ChatMessage {
 
 export const chatWithMinimax = async (
   messages: ChatMessage[],
-  apiKey: string,
-  groupId?: string
+  apiKey: string
 ): Promise<string> => {
   // Using OpenRouter API
   const url = `https://openrouter.ai/api/v1/chat/completions`;
