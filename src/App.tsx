@@ -33,7 +33,7 @@ function App() {
     if (!input.trim() || isLoading) return;
 
     if (!apiKey) {
-      alert('Please enter your Minimax API Key in the settings or .env file.');
+      alert('Please enter your OpenRouter API key to start.');
       return;
     }
 
@@ -61,13 +61,16 @@ function App() {
     <div className="app-container">
       <header className="header">
         <h1>🏛️ AI History Explorer</h1>
-        <div className="api-key-input">
-          <input
-            type="password"
-            placeholder="OpenRouter API Key"
-            value={apiKey}
-            onChange={(e) => setApiKey(e.target.value)}
-          />
+        <div className="api-key-panel">
+          <div className="api-key-input">
+            <input
+              type="password"
+              placeholder="OpenRouter API Key"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+            />
+          </div>
+          <p className="api-key-hint">Paste your OpenRouter API key to start.</p>
         </div>
       </header>
 
