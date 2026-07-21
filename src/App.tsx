@@ -65,7 +65,7 @@ function App() {
           <div className="api-key-input">
             <input
               type="password"
-              placeholder="Enter your OpenRouter API Key"
+              placeholder="OpenRouter API Key"
               value={apiKey}
               onChange={(e) => setApiKey(e.target.value)}
             />
